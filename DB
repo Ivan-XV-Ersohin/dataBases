@@ -1,0 +1,65 @@
+CREATE TABLE students(
+        id_student int  AUTO_INCREMENT,
+        second_name VARCHAR(15),
+        first_name VARCHAR(15),
+        middle_name VARCHAR(15),
+        id_faculty int,
+        course int,
+        PRIMARY KEY (id_student),
+        FOREIGN KEY (id_faculty) REFERENCES faculty(id_faculty)
+);
+
+INSERT INTO students(id_student, second_name, first_name, middle_name, id_faculty, course)
+VALUES ('1','Иванов','Иван','Иванович','1','1');
+
+INSERT INTO students(second_name, first_name, middle_name, id_faculty, course)
+VALUES ('Петров','Пётр','Петрович','3','2');
+
+INSERT INTO students(second_name, first_name, middle_name, id_faculty, course)
+VALUES ('Александрова','Александра','Александровна','3','3');
+
+INSERT INTO students(second_name, first_name, middle_name, id_faculty, course)
+VALUES ('Евгеньева','Евгения','Евгеньевна','2','4');
+
+INSERT INTO students(second_name, first_name, middle_name, id_faculty, course)
+VALUES ('Валерьева','Валерия','Валерьевна','2','1');
+
+INSERT INTO students(second_name, first_name, middle_name, id_faculty, course)
+VALUES ('Уваров','Константин','Дмитриевич','1','2');
+
+INSERT INTO students(second_name, first_name, middle_name, id_faculty, course)
+VALUES ('Гладких','Пахом','Остапович','3','3');
+
+INSERT INTO students(second_name, first_name, middle_name, id_faculty, course)
+VALUES ('Олегова','Ольга','Олеговна','4','4');
+
+INSERT INTO students(second_name, first_name, middle_name, id_faculty, course)
+VALUES ('Берегова','Лидия','Владимировна','4','1');
+
+INSERT INTO students(second_name, first_name, middle_name, id_faculty, course)
+VALUES ('Котелков','Анатолий','Юрьевич','3','1');
+
+CREATE TABLE faculty(
+        id_faculty int AUTO_INCREMENT,
+        faculty_name VARCHAR (15),
+        PRIMARY KEY (id_faculty)
+);
+
+INSERT INTO faculty (id_faculty, faculty_name)
+VALUES ('1','Физический');
+
+INSERT INTO faculty (faculty_name)
+VALUES ('Математический');
+
+INSERT INTO faculty (faculty_name)
+VALUES ('Юридический');
+
+INSERT INTO faculty (faculty_name)
+VALUES ('Лингвистический');
+
+SELECT * FROM students WHERE course = 1
+ORDER BY second_name ASC;
+
+SELECT faculty_name FROM faculty RIGHT JOIN students
+WHERE MAX(students.course);
+
